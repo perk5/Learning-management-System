@@ -33,6 +33,8 @@ export const userEnrolledCourses = async (req, res) => {
     }
 }   
 
+// Purchase Course
+
 export const purchaseCourse = async (req, res) => {
     try {
         const {courseId} = req.body
@@ -67,7 +69,7 @@ export const purchaseCourse = async (req, res) => {
                 product_data:{
                     name: courseData.courseTitle
                 },
-                unit_amount: Math.round(parseFloat(newPurchase.amount) * 100)
+                unit_amount: Math.floor(newPurchase.amount) * 100
             },
             quantity: 1
         }]
