@@ -126,24 +126,44 @@ const CourseDetails = () => {
                       <div className={`overflow-hidden transition-all 
                       duration-300 ${openSection[index] ? 'max-h-96' : 'max-h-0'}`}>
                         <ul className='list-disc md:pl-10 pl-4 pr-4 py-2 text-gray-600 border-t border-gray-300'>
-                          {chapter.chapterContent.map((lecture, index) => {
-                            return <li className='flex items-start gap-2 py-1' key={index}>
+                          {chapter.chapterContent.map((lecture, index) => (
+                            <li className='flex items-start gap-2 py-1' key={index}>
                               <img className='w-4 h-4 mt-1' src={assets.play_icon} alt="play_icon" />
-                              <div className='flex items-center justify-between w-full text-gray-800 text-xs
-                                md:text-default'>
+                              <div className='flex items-center justify-between w-full text-gray-800 text-xs md:text-default'>
                                 <p>{lecture.lectureTitle}</p>
                                 <div className='flex gap-2'>
-                                  {lecture.isPreviewFree && <p onClick={() => {
-                                    return setPlayerData({
-                                      videoId: lecture.lectureUrl.split('/').pop()
-                                    })
-                                  }}
-                                  className='text-blue-500 cursor-pointer'>Preview</p> }
-                                  <p>{humanizeDuration(lecture.lectureDuration * 60 * 1000, {units: ["h", "m"]}) }</p>
+                                  {/* If user is enrolled, show "Watch" for all */}
+                                  {isAlreadyEnrolled ? (
+                                    <p 
+                                      onClick={() => setPlayerData({
+                                        videoId: lecture.lectureUrl.split('/').pop()
+                                      })}
+                                      className='text-green-600 cursor-pointer font-medium'
+                                    >
+                                      Watch
+                                    </p>
+                                  ) : (
+                                    // If not enrolled, only show preview if it's free
+                                    lecture.isPreviewFree && (
+                                      <p 
+                                        onClick={() => setPlayerData({
+                                          videoId: lecture.lectureUrl.split('/').pop()
+                                        })}
+                                        className='text-blue-500 cursor-pointer'
+                                      >
+                                        Preview
+                                      </p>
+                                    )
+                                  )}
+                                  <p>
+                                    {humanizeDuration(lecture.lectureDuration * 60 * 1000, {
+                                      units: ["h", "m"]
+                                    })}
+                                  </p>
                                 </div>
                               </div>
                             </li>
-                          })}
+                          ))}
                         </ul>
                       </div>
                     </div>
@@ -202,7 +222,7 @@ const CourseDetails = () => {
                 <li>Lifetime updates with free updates.</li>
                 <li>Step by Step, hands-on project guidance.</li>
                 <li>Downloadable resources and source code.</li>
-                <li>Quizzes to test youe knowledge.</li>
+                <li>Quizzes to test your knowledge.</li>
                 <li>Certification of completion.</li>
               </ul>
             </div>
