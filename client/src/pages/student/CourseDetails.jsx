@@ -85,7 +85,7 @@ const CourseDetails = () => {
   return courseData ? (
     <>
       <div className='flex md:flex-row flex-col-reverse gap-10 relative items-start 
-      justify-between md:px-36 px-8 md:pt-30 pt-20 text-left'>
+      justify-between md:px-20 px-8 md:pt-30 pt-20 text-left'>
         <div className='absolute top-0 left-0 w-full h-section-height -z-1 bg-gradient-to-b from-cyan-100/70'>
         </div>
         {/* leftColumn */}
@@ -109,12 +109,12 @@ const CourseDetails = () => {
               <p> {courseData.enrolledStudents.length} {courseData.enrolledStudents.length > 1 ? 'Students' : 'Student'}</p>
           </div>
           <p className='text-sm'>Course by <span className='text-blue-600 underline'>{courseData.educator.name}</span></p>
-            <div className='pt-8 text-gray-800'>
+            <div className='pt-8 text-gray-800 w-full'>
                 <h2 className='text-xl font-semibold'>Course Structure</h2>
-                <div className='pt-5 '>
+                <div className='pt-5 w-full'>
                   {courseData.courseContent.map((chapter, index) => (
                      <div key={index} className='border border-gray-300 bg-white mb-2 rounded'>
-                      <div className ="flex items-center justify-between px-4 py-3 cursor-pointer select-none w-[450px]" onClick={() => {
+                      <div className ="flex items-center justify-between px-4 py-3 cursor-pointer select-none w-full" onClick={() => {
                         return toggleSection(index)
                       }}>
                         <div className='flex items-center gap-2'>
@@ -180,7 +180,7 @@ const CourseDetails = () => {
           </div>
         </div>
         {/* RightColumn */}
-        <div className='max-w-course-card z-10 shadow-custom-card rounded-lg overflow-hidden bg-white min-w-[300px] sm:min-w-[420px]'>
+        <div className='max-w-course-card z-10 shadow-custom-card rounded-lg overflow-hidden bg-white min-w-[270px] sm:min-w-[320px]'>
 
           {
             PlayerData ? <YouTube videoId={PlayerData.videoId} opts={{playerVars: {autoplay: 1}}} 
