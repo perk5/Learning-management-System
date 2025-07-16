@@ -1,6 +1,7 @@
 # 📚 Full-Stack Learning Management System (MERN)
 
 This is a modern and attractive Learning Management System (LMS) where educators can upload courses, and students can enrol, make payments, and learn online. Built with the powerful MERN stack (MongoDB, Express, React, Node.js), it also features Clerk for user authentication and Stripe for secure payments.
+
 ---
 
 ## 🔍 Project Demo Highlights
