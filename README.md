@@ -1,7 +1,5 @@
 # 📚 Full-Stack Learning Management System (MERN)
 
-Welcome to another exciting tutorial from **Great Stack**! This project is a fully functional **Learning Management System (LMS)** where educators can upload courses and students can enrol, pay, and watch content online. It is built using the **MERN stack (MongoDB, Express, React, Node.js)** with **Clerk** for authentication and **Stripe** for payments.
-
 ---
 
 ## 🔍 Project Demo Highlights
